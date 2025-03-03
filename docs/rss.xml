@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Mon, 03 Mar 2025 07:59:43 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>docker命令大全</title><link>https://luyuanbo793.github.io/post/docker-ming-ling-da-quan.html</link><description># docker命令大全
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Mon, 03 Mar 2025 08:01:11 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>Escrcpy下载(电脑控制手机软件)</title><link>https://luyuanbo793.github.io/post/Escrcpy-xia-zai-%28-dian-nao-kong-zhi-shou-ji-ruan-jian-%29.html</link><description># Escrcpy下载(电脑控制手机软件)
+
+## [官网地址](https://github.com/viarotel-org/escrcpy/tree/v1.28.6 '官网地址')
+
+### [下载地址](https://github.com/viarotel-org/escrcpy/releases/tag/v1.28.6 '下载地址')
+
+![](https://i-blog.csdnimg.cn/direct/abd2d0e4c4e745d1854f8957fdf4a5f8.jpeg)
+。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/Escrcpy-xia-zai-%28-dian-nao-kong-zhi-shou-ji-ruan-jian-%29.html</guid><pubDate>Mon, 03 Mar 2025 08:00:51 +0000</pubDate></item><item><title>docker命令大全</title><link>https://luyuanbo793.github.io/post/docker-ming-ling-da-quan.html</link><description># docker命令大全
 
 ## 一、启动类
 
