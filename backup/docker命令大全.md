@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Mon, 03 Mar 2025 07:59:43 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>docker命令大全</title><link>https://luyuanbo793.github.io/post/docker-ming-ling-da-quan.html</link><description># docker命令大全
+# docker命令大全
 
 ## 一、启动类
 
@@ -72,7 +71,7 @@
     docker pull mysql #没有制定版本则默认最新版 
     
 
-[docker官方镜像地址](https://hub.docker.com/search?type=image 'docker官方镜像地址')
+[docker官方镜像地址](https://hub.docker.com/search?type=image "docker官方镜像地址")
 
 ### 4\. 运行镜像
     
@@ -119,7 +118,7 @@
     docker ps
     docker ps -a # 查看所有容器
     #加格式化方式访问，格式会更加清爽
-    docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}\t{{.Names}}'
+    docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}\t{{.Names}}"
     
 
 ### 2\. 创建容器
@@ -281,7 +280,7 @@
 
 ## 五、 Docker compose
 
-[官方文档：基本语法](https://docs.docker.com/compose/compose-file/legacy-versions/ '官方文档：基本语法')
+[官方文档：基本语法](https://docs.docker.com/compose/compose-file/legacy-versions/ "官方文档：基本语法")
 
 假设docker run 部署 mysql命令如下
     
@@ -301,20 +300,20 @@
 那么用docker-compose.yml 文件定义就是：
     
     
-    version: '3.8'
+    version: "3.8"
     
     services:
       mysql:
         image: mysql
         container_name: mysql
         ports:
-          - '3306:3306'
+          - "3306:3306"
         environment:
           TZ: Asia/Shanghai
           MYSQL_ROOT_PASSWORD: 123
         volumes:
-          - './mysql/conf:/etc/mysql/conf.d'
-          - './mysql/data:/var/lib/mysql'
+          - "./mysql/conf:/etc/mysql/conf.d"
+          - "./mysql/data:/var/lib/mysql"
         networks:
           - new
     networks:
@@ -335,9 +334,141 @@
     docker-compose up -d # 后台运行
     
 
-### 3\. 停止并删除容器、网络、卷、镜像。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/docker-ming-ling-da-quan.html</guid><pubDate>Mon, 03 Mar 2025 07:59:18 +0000</pubDate></item><item><title>firpe整合下载链接</title><link>https://luyuanbo793.github.io/post/firpe-zheng-he-xia-zai-lian-jie.html</link><description>- [BT下载](http://luhttp.fucku.top/%e5%88%86%e4%ba%ab/New%20Folder/Firpe2/)
-[备用BT下载](https://share.feijipan.com/s/K1FgqPah)
-- [下载链接](https://cloud.06dn.com/s/nbBdTK)
-- [下载链接](https://pan.huang1111.cn/s/DVMqyU4)
-- [下载链接](https://pan.hefamily.net/s/Ov5MUk)
-- [烧录工具下载密码0000](https://luyuanbo.lanzouv.com/b00y9zmqra)。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/firpe-zheng-he-xia-zai-lian-jie.html</guid><pubDate>Sun, 02 Mar 2025 11:41:09 +0000</pubDate></item><item><title>卢元博的博客</title><link>https://luyuanbo793.github.io/post/lu-yuan-bo-de-bo-ke.html</link><description>卢元博的博客。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/lu-yuan-bo-de-bo-ke.html</guid><pubDate>Sun, 02 Mar 2025 10:54:49 +0000</pubDate></item></channel></rss>
+### 3\. 停止并删除容器、网络、卷、镜像。
+    
+    
+    docker-compose down
+    
+
+### 4\. 进入容器实例内部
+    
+    
+    docker-compose exec  yml里面的服务id
+    
+
+### 5\. 展示容器
+    
+    
+    ocker-compose ps
+    
+
+### 6\. 展示进程
+    
+    
+    docker-compose top
+    
+
+### 7\. 查看容器输出日志
+    
+    
+    docker-compose logs  yml里面的服务id
+    
+
+### 8\. 检查配置
+    
+    
+    docker-compose config
+    docker-compose config -q # 检查配置，有问题才有输出
+    
+
+### 9\. 启动服务
+    
+    
+    docker-compose start
+    
+
+### 10\. 重启服务
+    
+    
+    docker-compose restart
+    
+
+### 11\. 停止服务
+    
+    
+    docker-compose stop
+    
+
+## 六、 其他
+
+### 1\. 命令别名
+    
+    
+    # 修改/root/.bashrc文件
+    vi /root/.bashrc
+    内容如下：
+    # .bashrc
+    
+    # User specific aliases and functions
+    
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
+    alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}\t{{.Names}}"'
+    alias dis='docker images'
+    
+    # Source global definitions
+    if [ -f /etc/bashrc ]; then
+            . /etc/bashrc
+    fi
+    #退出
+    exit
+    :wq
+    
+    #执行命令使别名生效
+    source /root/.bashrc
+    
+
+## 八。Docker更换国内镜像源
+    
+    
+    #!/bin/bash
+    
+    # 创建 /etc/docker 目录，如果目录已存在则不报错
+    sudo mkdir -p /etc/docker
+    
+    # 写入 daemon.json 文件内容
+    sudo tee /etc/docker/daemon.json <<-'EOF'
+    {
+        "registry-mirrors": [
+            "https://dockerproxy.com",
+            "https://docker.mirrors.ustc.edu.cn",
+            "https://docker.nju.edu.cn",
+            "https://cr.console.aliyun.com",
+            "https://docker.mirrors.ustc.edu.cn",
+            "http://hub-mirror.c.163.com",
+            "https://hub.daocloud.io",
+            "http://mirror.azure.cn",
+            "https://mirror.baidubce.com",
+            "https://docker.mirrors.sjtug.sjtu.edu.cn",
+            "https://docker.nju.edu.cn",
+            "https://docker.hpcloud.cloud",
+            "https://docker.m.daocloud.io",
+            "https://docker.unsee.tech",
+            "https://docker.1panel.live",
+            "http://mirrors.ustc.edu.cn",
+            "https://docker.chenby.cn",
+            "http://mirror.azure.cn",
+            "https://dockerpull.org",
+            "https://dockerhub.icu",
+            "https://hub.rat.dev",
+            "https://docker.m.daocloud.io",
+            "https://dockerproxy.com",
+            "https://docker.mirrors.ustc.edu.cn",
+            "https://docker.nju.edu.cn",
+            "https://cr.console.aliyun.com",
+            "https://ccr.ccs.tencentyun.com",
+            "https://dockerproxy.com",
+            "https://hub-mirror.c.163.com",
+            "https://mirror.baidubce.com",
+            "https://hubgw.docker.com"
+        ]
+    }
+    EOF
+    
+    # 重新加载 systemd 配置
+    sudo systemctl daemon-reload
+    
+    # 重启 Docker 服务
+    sudo systemctl restart docker
+    
