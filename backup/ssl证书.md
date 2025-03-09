@@ -1,11 +1,7 @@
-# ssl证书
+ssl证书
 
-## ssl证书
-
-### 1\. 证书（PEM格式）
-    
-    
-    -----BEGIN CERTIFICATE-----
+证书（PEM格式）
+-----BEGIN CERTIFICATE-----
 MIIDSjCCAjKgAwIBAgIUP3a8Akjmxg3zbZfc0Dz+NnqgYmowDQYJKoZIhvcNAQEL
 BQAwgagxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
 Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBDbG91ZGZsYXJlLCBJbmMuMRswGQYD
@@ -25,13 +21,14 @@ r65OIfs1YTCSsgcohkPg5zaeH2hwXYaEDG6NQXZMbld8EF2HWWQSZg3Lckr6dwAh
 EbQHpVleLwCdslaU0y6CJZR8e+M9A4U8jSmj+wzd4CY5yatibKES3QV07Nur+0wM
 77hWrGYb9RlxRcLP5sVe0U0CbeWxnEG9bAYc5ddi
 -----END CERTIFICATE-----
-    
 
-### 2\. 密钥（KEY）
-    
-    
-    -----BEGIN PRIVATE KEY-----
+
+密钥（KEY）
+-----BEGIN PRIVATE KEY-----
 MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg4kvxqgsBDn5FLbvs
 M4tzNMa4m9ROK5DWpdui74dx+SGhRANCAATX/8TII4FISSoQdu7AKHcKYlkQOhda
 uctI/Ki4nHnhd2r7YwI4F3YiBOjy7Q2Mc4g4sItfSfI3Rq5JSsS10pYo
 -----END PRIVATE KEY-----
+    
+    
+ 
