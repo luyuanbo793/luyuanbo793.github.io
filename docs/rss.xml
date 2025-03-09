@@ -1,5 +1,41 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Sat, 08 Mar 2025 13:38:05 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>安卓烧录软件</title><link>https://luyuanbo793.github.io/post/an-zhuo-shao-lu-ruan-jian.html</link><description>支持esp 8266和esp 32系列的烧录
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Sun, 09 Mar 2025 13:54:30 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>ssl证书</title><link>https://luyuanbo793.github.io/post/ssl-zheng-shu.html</link><description># ssl证书
+
+## ssl证书
+
+### 1\. 证书（PEM格式）
+    
+    
+    -----BEGIN CERTIFICATE-----
+MIIDSjCCAjKgAwIBAgIUP3a8Akjmxg3zbZfc0Dz+NnqgYmowDQYJKoZIhvcNAQEL
+BQAwgagxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
+Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExBDbG91ZGZsYXJlLCBJbmMuMRswGQYD
+VQQLExJ3d3cuY2xvdWRmbGFyZS5jb20xNDAyBgNVBAMTK01hbmFnZWQgQ0EgOTBk
+ZjhlMjJmOTExZmFiMWRhOTJiOGMyOTFmMzcyNzUwHhcNMjUwMzA5MTM0MjAwWhcN
+NDAwMzA1MTM0MjAwWjAiMQswCQYDVQQGEwJVUzETMBEGA1UEAxMKQ2xvdWRmbGFy
+ZTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABNf/xMgjgUhJKhB27sAodwpiWRA6
+F1q5y0j8qLiceeF3avtjAjgXdiIE6PLtDYxziDiwi19J8jdGrklKxLXSliijgbsw
+gbgwEwYDVR0lBAwwCgYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU
+vtcYZ2K0CxH0jO0dfBYLzk/j2W4wHwYDVR0jBBgwFoAUo+CVUhC9upAVXnrRGSEM
+ZE0u3ZAwUwYDVR0fBEwwSjBIoEagRIZCaHR0cDovL2NybC5jbG91ZGZsYXJlLmNv
+bS9kMDkzNGY1OC1lYWMwLTQ4YjEtYjY1OC1jZTQ3NGRiZWUzNTYuY3JsMA0GCSqG
+SIb3DQEBCwUAA4IBAQCv7APqbLPF0Z1qEjHQR8yv+LKnNhM8s9nKpn/U5eU/+UJg
+i6DdrH0pOT3KclxA5ayrydeRGXd+mxvQgFlzh3STBlkmfDSz2Sf5g31znQlnfSZE
+r65OIfs1YTCSsgcohkPg5zaeH2hwXYaEDG6NQXZMbld8EF2HWWQSZg3Lckr6dwAh
+7MisMNAMkgvEtp+HVDhfEsIIUZoA/DiK+bVYZf4UhISTdUzjKJDgmzJdbJzTnsRu
+EbQHpVleLwCdslaU0y6CJZR8e+M9A4U8jSmj+wzd4CY5yatibKES3QV07Nur+0wM
+77hWrGYb9RlxRcLP5sVe0U0CbeWxnEG9bAYc5ddi
+-----END CERTIFICATE-----
+    
+
+### 2\. 密钥（KEY）
+    
+    
+    -----BEGIN PRIVATE KEY-----
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg4kvxqgsBDn5FLbvs
+M4tzNMa4m9ROK5DWpdui74dx+SGhRANCAATX/8TII4FISSoQdu7AKHcKYlkQOhda
+uctI/Ki4nHnhd2r7YwI4F3YiBOjy7Q2Mc4g4sItfSfI3Rq5JSsS10pYo
+-----END PRIVATE KEY-----。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/ssl-zheng-shu.html</guid><pubDate>Sun, 09 Mar 2025 13:54:06 +0000</pubDate></item><item><title>安卓烧录软件</title><link>https://luyuanbo793.github.io/post/an-zhuo-shao-lu-ruan-jian.html</link><description>支持esp 8266和esp 32系列的烧录
 [安卓烧录软件下载](https://lz.qaiu.top/d/lz/iLXWO2pyubtc@0000)
 [示例固件下载](https://lz.qaiu.top/d/lz/iV4Vf2pyucod)
 ![Screenshot_20250308_135303.jpg](https://github.com/user-attachments/assets/3d719285-8c54-4ddb-a21e-75b520d654b9)
