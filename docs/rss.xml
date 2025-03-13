@@ -1,5 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Mon, 10 Mar 2025 05:55:42 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>ssl证书</title><link>https://luyuanbo793.github.io/post/ssl-zheng-shu.html</link><description>ssl证书
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Thu, 13 Mar 2025 03:04:12 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>docker源</title><link>https://luyuanbo793.github.io/post/docker-yuan.html</link><description># Docker更换国内镜像源
+
+
+    sudo mkdir -p /etc/docker
+    sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+    {
+        'registry-mirrors': [
+            'https://dockerproxy.com',
+            'https://docker.mirrors.ustc.edu.cn',
+            'https://docker.nju.edu.cn',
+            'https://cr.console.aliyun.com',
+            'https://docker.mirrors.ustc.edu.cn',
+            'http://hub-mirror.c.163.com',
+            'https://hub.daocloud.io',
+            'http://mirror.azure.cn',
+            'https://mirror.baidubce.com',
+            'https://docker.mirrors.sjtug.sjtu.edu.cn',
+            'https://docker.nju.edu.cn',
+            'https://docker.hpcloud.cloud',
+            'https://docker.m.daocloud.io',
+            'https://docker.unsee.tech',
+            'https://docker.1panel.live',
+            'http://mirrors.ustc.edu.cn',
+            'https://docker.chenby.cn',
+            'http://mirror.azure.cn',
+            'https://dockerpull.org',
+            'https://dockerhub.icu',
+            'https://hub.rat.dev',
+            'https://docker.m.daocloud.io',
+            'https://dockerproxy.com',
+            'https://docker.mirrors.ustc.edu.cn',
+            'https://docker.nju.edu.cn',
+            'https://cr.console.aliyun.com',
+            'https://ccr.ccs.tencentyun.com',
+            'https://dockerproxy.com',
+            'https://hub-mirror.c.163.com',
+            'https://mirror.baidubce.com',
+            'https://hubgw.docker.com',
+            'https://cf-workers-docker-io-bc4.pages.dev',
+             'https://cf-workers-docker-io-8ws.pages.dev'
+         ]
+    }
+    EOF
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
+。</description><guid isPermaLink="true">https://luyuanbo793.github.io/post/docker-yuan.html</guid><pubDate>Thu, 13 Mar 2025 03:03:51 +0000</pubDate></item><item><title>ssl证书</title><link>https://luyuanbo793.github.io/post/ssl-zheng-shu.html</link><description>ssl证书
 
 证书（PEM格式）
 -----BEGIN CERTIFICATE-----
