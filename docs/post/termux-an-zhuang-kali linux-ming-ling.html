@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="# 全网最全！Termux安装Kali全详细教程！包括常见错误，实现Kali VNC图形化，安装老版本镜像！
+
+## 简介
+
+### Termux
+
+Termux 是一款运行于 Android 系统的开源终端模拟器。">
+<meta property="og:title" content="termux安装kali linux命令">
+<meta property="og:description" content="# 全网最全！Termux安装Kali全详细教程！包括常见错误，实现Kali VNC图形化，安装老版本镜像！
+
+## 简介
+
+### Termux
+
+Termux 是一款运行于 Android 系统的开源终端模拟器。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luyuanbo793.github.io/post/termux-an-zhuang-kali%20linux-ming-ling.html">
+<meta property="og:image" content="https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg">
+<title>termux安装kali linux命令</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">termux安装kali linux命令</h1>
+<div class="title-right">
+    <a href="https://luyuanbo793.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/luyuanbo793/luyuanbo793.github.io/issues/16" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>全网最全！Termux安装Kali全详细教程！包括常见错误，实现Kali VNC图形化，安装老版本镜像！</h1>
+<h2>简介</h2>
+<h3>Termux</h3>
+<p>Termux 是一款运行于 Android 系统的开源终端模拟器。该软件提供了 Linux 环境，即使设备不具备 root 权限也可使用。通过自带的包管理器（Pacman、 APT），Termux 可以安装许多现代化的开发和系统维护工具，例如 zsh、Python、Ruby、NodeJS、MySQL 等软件。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2c27b7c48183d15103458487a125fb2a2a00805d3b35d3e7dcf6f28d1a468197/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31303038623263656237613434376261393262383730656530326134363363612e706e67"><img src="https://camo.githubusercontent.com/2c27b7c48183d15103458487a125fb2a2a00805d3b35d3e7dcf6f28d1a468197/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31303038623263656237613434376261393262383730656530326134363363612e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/1008b2ceb7a447ba92b870ee02a463ca.png" style="max-width: 100%;"></a></p>
+<h3>Kali NetHunter</h3>
+<p>Kali NetHunter 是一个基于 Kali Linux 的适用于 Android 设备的免费开源移动渗透测试平台。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/070b4e0024f37999ec46973f0ebbc81f5c5359a8fb5edbc38432f00f2aaf09e1/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31623337633063643862363734353938613562643834386336353836326533642e706e67"><img src="https://camo.githubusercontent.com/070b4e0024f37999ec46973f0ebbc81f5c5359a8fb5edbc38432f00f2aaf09e1/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31623337633063643862363734353938613562643834386336353836326533642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/1b37c0cd8b674598a5bd848c65862e3d.png" style="max-width: 100%;"></a></p>
+<p>Kali NetHunter 适用于未 root 设备（NetHunter Rootless）、具有自定义恢复的 root 设备（NetHunter Lite）以及具有自定义恢复且可使用 NetHunter 特定内核的 root 设备（NetHunter）。</p>
+<p>Kali NetHunter 的核心包含在所有三个版本中，包括：</p>
+<ul>
+<li>
+<p>Kali Linux 容器，包含 Kali Linux 提供的所有工具和应用程序</p>
+</li>
+<li>
+<p>Kali NetHunter 应用商店提供数十款专用安全应用程序</p>
+</li>
+<li>
+<p>Android 客户端访问 Kali NetHunter 应用商店</p>
+</li>
+<li>
+<p>Kali NetHunter 桌面体验 (KeX) 可运行完整的 Kali Linux 桌面会话，并支持通过 HDMI 或无线屏幕投射进行屏幕镜像</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4457e526173ddfd44e8fba8b5be6aca02c49eaf0cf322d154538bfcef3c5e75d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373065313034386230323834343137626230646139393066323933643236392e706e67"><img src="https://camo.githubusercontent.com/4457e526173ddfd44e8fba8b5be6aca02c49eaf0cf322d154538bfcef3c5e75d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373065313034386230323834343137626230646139393066323933643236392e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/870e1048b0284417bb0da990f293d269.png" style="max-width: 100%;"></a></p>
+<p>可以通过专用客户端应用程序或 Web 界面访问 Kali NetHunter App Store。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d783597e7decffa0451c71d43e6122cd38229703d2db396e4d3cd2e8f3f6ee2e/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33653139393933356537633634663331386661666333346438643330313731382e706e67"><img src="https://camo.githubusercontent.com/d783597e7decffa0451c71d43e6122cd38229703d2db396e4d3cd2e8f3f6ee2e/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33653139393933356537633634663331386661666333346438643330313731382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/3e199935e7c64f318fafc34d8d301718.png" style="max-width: 100%;"></a></p>
+<p><strong>两个 root 版本均提供附加工具和服务</strong> 。自定义内核可以通过添加附加网络和 USB 小工具驱动程序以及为选定的 Wi-Fi 芯片提供 Wi-Fi 注入支持来扩展该功能。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f157a86519bf732a14632f29af3eabf422763b432ab42b7ca48c2f0d262d9db3/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66666138336336393164373634363530393538623034343062663736643237632e706e67"><img src="https://camo.githubusercontent.com/f157a86519bf732a14632f29af3eabf422763b432ab42b7ca48c2f0d262d9db3/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66666138336336393164373634363530393538623034343062663736643237632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/ffa83c691d764650958b0440bf76d27c.png" style="max-width: 100%;"></a></p>
+<p>除了 Kali Linux 中包含的渗透测试工具之外，NetHunter 还支持几个附加类别，例如HID 键盘攻击、BadUSB 攻击、Evil AP MANA 攻击等等。</p>
+<p>NetHunter 可以安装在几乎所有的 Android 设备上，使用以下版本之一：</p>
+<ul>
+<li>NetHunter Rootless：NetHunter 的核心适用于未 root 且未修改的设备</li>
+<li>NetHunter Lite：完整的 NetHunter 软件包适用于没有自定义内核的 root 手机。</li>
+<li>NetHunter：完整的 NetHunter 软件包，带有针对支持设备的自定义内核</li>
+</ul>
+<h2>安装Termux</h2>
+<h3>github安装</h3>
+<p>可以通过Termux的官方github的Release页面进行下载。</p>
+<p><a href="https://github.com/termux/termux-app/releases">https://github.com/termux/termux-app/releases</a></p>
+<p>可以使用最新版本。在展开Assets的三角小箭头，可以看到这里有很多的apk。可以根据自己的需求去选择一个apk安装。</p>
+<ul>
+<li>arm64-v8a（64位 ARM 处理器）：适用于较新的安卓设备，尤其是 64 位 ARM 设备。</li>
+<li>armeabi-v7a（32位 ARM 处理器）：适用于大部分较老的安卓设备。</li>
+<li>x86（32位 Intel 处理器）：适用于少数搭载 Intel 处理器的安卓设备。</li>
+<li>x86_64（64位 Intel 处理器）：适用于较新的搭载 Intel 处理器的安卓设备。</li>
+<li>universal ：这是一个适配所有架构的版本，通常是包含多个架构的 APK，适用于各种设备。</li>
+</ul>
+<p><strong>选择安装的 APK</strong></p>
+<ul>
+<li>如果你的设备是现代的安卓设备，并且使用的是 ARM 64位处理器，选择 termux-app_v0.118.1+github-debug_arm64-v8a.apk。</li>
+<li>如果你的设备是较老的 32位 ARM 设备，可以选择 termux-app_v0.118.1+github-debug_armeabi-v7a.apk。</li>
+<li>如果你不确定设备的架构，或者需要支持多个架构，建议选择 termux-app_v0.118.1+github-debug_universal.apk，它是一个通用版本，应该能够在大多数安卓设备上运行。</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/60cd1a1e3ebedb07f4d4ff4c802b4333c635341e545ca86a7b5d1d55198a9e08/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32616466653232343561353534386536623864643961396539323336313536652e706e67"><img src="https://camo.githubusercontent.com/60cd1a1e3ebedb07f4d4ff4c802b4333c635341e545ca86a7b5d1d55198a9e08/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32616466653232343561353534386536623864643961396539323336313536652e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/2adfe2245a5548e6b8dd9a9e9236156e.png" style="max-width: 100%;"></a></p>
+<h3>F-Droid安装</h3>
+<p>可以通过F-Droid去下载Termux的安装包</p>
+<p><a href="https://f-droid.org/en/packages/com.termux/" rel="nofollow">https://f-droid.org/en/packages/com.termux/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/420bb433a11ea11d41cfc39398f20c4624866381a3a972e6ee9bbc0b037b8629/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31383962393734633466643734616130393661386631346339336330373034312e706e67"><img src="https://camo.githubusercontent.com/420bb433a11ea11d41cfc39398f20c4624866381a3a972e6ee9bbc0b037b8629/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31383962393734633466643734616130393661386631346339336330373034312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/189b974c4fd74aa096a8f14c93c07041.png" style="max-width: 100%;"></a></p>
+<p>往下滑，我们可以在下面看到Termux的一些历史版本。最新的版本是 <strong>0.119.0-beta.1 (1020)</strong> ，更新于 2024-06-21。不过我不太建议下载，因为它是一个beta版。可能会有bug或不稳定。</p>
+<p>建议下载版本 <strong>0.118.1(1000)</strong> ，点击下载APK，即可下载安装包。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/430b6d71d5a1ead03e01039ae4d1e5465af62d795d3d1081385a461a5f22d0bf/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62313666646461356633313934653263613636343436633336633161643935612e706e67"><img src="https://camo.githubusercontent.com/430b6d71d5a1ead03e01039ae4d1e5465af62d795d3d1081385a461a5f22d0bf/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62313666646461356633313934653263613636343436633336633161643935612e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/b16fdda5f3194e2ca66446c36c1ad95a.png" style="max-width: 100%;"></a></p>
+<h2><strong>Kali NetHunter 应用商店</strong></h2>
+<p>可以下载安装 <strong>Kali NetHunter App Store</strong> 。</p>
+<p><strong>Kali NetHunter 应用商店</strong> 是一个可安装的 Android 应用程序目录，用于渗透测试和取证。客户端可让您轻松浏览、安装和跟踪设备上的更新。</p>
+<p>也可以在 <strong>Kali NetHunter App Store</strong> 里面下载安装Termux <strong>。</strong></p>
+<p><a href="https://store.nethunter.com/" rel="nofollow">https://store.nethunter.com/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0502451bf5289cd3ce46378c75a03d213e4086e05767df39835c76969a335427/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31323764366137363530393334366535623830313138663730343335616336332e706e67"><img src="https://camo.githubusercontent.com/0502451bf5289cd3ce46378c75a03d213e4086e05767df39835c76969a335427/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31323764366137363530393334366535623830313138663730343335616336332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/127d6a76509346e5b80118f70435ac63.png" style="max-width: 100%;"></a></p>
+<p>安装apk后是这样的。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ea87f65334b82ea06c14a82c5936d3a65c9965ad0a6968f28db138421e6586ac/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35356561376336643861653334383530396534396362336462643266616166632e706e67"><img src="https://camo.githubusercontent.com/ea87f65334b82ea06c14a82c5936d3a65c9965ad0a6968f28db138421e6586ac/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35356561376336643861653334383530396534396362336462643266616166632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/55ea7c6d8ae348509e49cb3dbd2faafc.png" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d1a73dd9b04883e107815de8c972ca73edc3fee42b76154262fd43f5b75a93a9/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34353766616334373762613734646434396262396430383234363334373264352e706e67"><img src="https://camo.githubusercontent.com/d1a73dd9b04883e107815de8c972ca73edc3fee42b76154262fd43f5b75a93a9/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34353766616334373762613734646434396262396430383234363334373264352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/457fac477ba74dd49bb9d082463472d5.png" style="max-width: 100%;"></a></p>
+<h2>安装Kali NetHunter</h2>
+<p>可以在未获取root权限的安卓设备上安装 <strong>Kali NetHunter。</strong></p>
+<h3>先决条件</h3>
+<p>Android 设备（原装未修改设备，无需 root 或自定义恢复）</p>
+<h3>安装</h3>
+<p>可以通过NetHunter 商店安装 <strong>Termux</strong> 、 <strong>NetHunter-KeX 客户端</strong> 和 <strong>Hacker 键盘。</strong></p>
+<h4><strong>Termux</strong></h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5454bec75625c54971c578d40e0c7dcedb844d1cd065d6c3e8502ee244da0011/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32336461643466336261646434643663383865346633336635303130373330342e706e67"><img src="https://camo.githubusercontent.com/5454bec75625c54971c578d40e0c7dcedb844d1cd065d6c3e8502ee244da0011/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32336461643466336261646434643663383865346633336635303130373330342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/23dad4f3badd4d6c88e4f33f50107304.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5addcf52b4bd6a6955474b1af97c1578fe80a2d0f3c0a8639c1bb0fe3ccf2a5c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30363333666266653439643334653762386662666534653237643665613561312e706e67"><img src="https://camo.githubusercontent.com/5addcf52b4bd6a6955474b1af97c1578fe80a2d0f3c0a8639c1bb0fe3ccf2a5c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30363333666266653439643334653762386662666534653237643665613561312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0633fbfe49d34e7b8fbfe4e27d6ea5a1.png" style="max-width: 100%;"></a></p>
+<h4><strong>NetHunter-KeX 客户端</strong></h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2c6d306d90a9e7107a7ff613703ea37ff2800e6e5ae552c134bd236c9a046bbe/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30326238343238313131643634656561623566623866383039353935353364622e706e67"><img src="https://camo.githubusercontent.com/2c6d306d90a9e7107a7ff613703ea37ff2800e6e5ae552c134bd236c9a046bbe/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30326238343238313131643634656561623566623866383039353935353364622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/02b8428111d64eeab5fb8f80959553db.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/56f94c4d1ba4e827d04197e14c5353c074d966f5a54b3930fa4a546d8d5fca32/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373366376565653535353534303631383137613330353931356666303032312e706e67"><img src="https://camo.githubusercontent.com/56f94c4d1ba4e827d04197e14c5353c074d966f5a54b3930fa4a546d8d5fca32/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373366376565653535353534303631383137613330353931356666303032312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/873f7eee55554061817a305915ff0021.png" style="max-width: 100%;"></a></p>
+<h4><strong>Hacker 键盘</strong></h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1790b8b5988f81f18e21ebb10657439ff85f6901f7445736f5924090f65ab35f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63356163356263666366396534643738386634326632323535323930656539662e706e67"><img src="https://camo.githubusercontent.com/1790b8b5988f81f18e21ebb10657439ff85f6901f7445736f5924090f65ab35f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63356163356263666366396534643738386634326632323535323930656539662e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/c5ac5bcfcf9e4d788f42f2255290ee9f.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b9e2d89818d8eef1362eb2d31c90a59f76bd73daf8d46821a084362c034e350d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65616532316661646536323234343832626463643238643864653835396263372e706e67"><img src="https://camo.githubusercontent.com/b9e2d89818d8eef1362eb2d31c90a59f76bd73daf8d46821a084362c034e350d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65616532316661646536323234343832626463643238643864653835396263372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/eae21fade6224482bdcd28d8de859bc7.png" style="max-width: 100%;"></a></p>
+<p>打开Hacker‘s Keyboard，设置一下启用Hacker键盘</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9216814bc6068686a518386a0c8ba2510fac82bf030d49dd0ad059627180bc9f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32663066643630346266353534366431383235366539383139613661326233382e706e67"><img src="https://camo.githubusercontent.com/9216814bc6068686a518386a0c8ba2510fac82bf030d49dd0ad059627180bc9f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32663066643630346266353534366431383235366539383139613661326233382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/2f0fd604bf5546d18256e9819a6a2b38.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7b187260896f4bed18e498f18d1b28cb92817769804f885121de9f9d24f27f7b/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38643337303136373436303534366334383463393361333637653439663635342e706e67"><img src="https://camo.githubusercontent.com/7b187260896f4bed18e498f18d1b28cb92817769804f885121de9f9d24f27f7b/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38643337303136373436303534366334383463393361333637653439663635342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/8d370167460546c484c93a367e49f654.png" style="max-width: 100%;"></a></p>
+<h3>开始安装</h3>
+<p><strong>注意：建议全程开启代理，不然可能后面会出现报错导致安装失败。</strong><br>
+<code class="notranslate">curl -O --url https://ghproxy.top/https://github.com/luyuanbo793/luyuanbo/releases/download/%E8%84%9A%E6%9C%AC/install_nethunter_script.sh &amp;&amp; chmod +x install_nethunter_script.sh &amp;&amp; ./install_nethunter_script.sh</code>一键安装脚本</p>
+<p>打开Termux，输入以下命令获取文件存储权限。</p>
+<pre class="notranslate"><code class="notranslate">termux-setup-storage
+</code></pre>
+<p>输入y回车确认</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/358c8d5b9d0546a032ea597c3dff94b6e7927015bb9d0cc26f19a4bcc5362598/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39363930386432363566613034373662626335616161373931653163316562352e706e67"><img src="https://camo.githubusercontent.com/358c8d5b9d0546a032ea597c3dff94b6e7927015bb9d0cc26f19a4bcc5362598/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39363930386432363566613034373662626335616161373931653163316562352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/96908d265fa0476bbc5aaa791e1c1eb5.png" style="max-width: 100%;"></a></p>
+<p>点击允许就获得权限了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bc4939715800b3536b28489ac4cb90adbaeb388f9e46ad0bacd87c8341781315/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38333334643266313362376534373431386435646533336663373262363338652e706e67"><img src="https://camo.githubusercontent.com/bc4939715800b3536b28489ac4cb90adbaeb388f9e46ad0bacd87c8341781315/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38333334643266313362376534373431386435646533336663373262363338652e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/8334d2f13b7e47418d5de33fc72b638e.png" style="max-width: 100%;"></a></p>
+<p>接下来更新Termux的包管理器。如果后面遇到暂停的选择，只需要按回车键默认就行。后面依次。</p>
+<pre class="notranslate"><code class="notranslate">pkg update
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9ea17648371ef43f4d785de97c351a7aaa3d45a879ba6e8b3515f116450778ac/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39373234393335323137313034386563626134613364613939663635643062362e706e67"><img src="https://camo.githubusercontent.com/9ea17648371ef43f4d785de97c351a7aaa3d45a879ba6e8b3515f116450778ac/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39373234393335323137313034386563626134613364613939663635643062362e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/97249352171048ecba4a3da99f65d0b6.png" style="max-width: 100%;"></a></p>
+<p>下载安装wget工具</p>
+<pre class="notranslate"><code class="notranslate">pkg install wget
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/856370ed1efc1de4028f9379f0b71e2f279dea5a6729b596b46d47dd2ad533ca/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373364376332623864626234373865386131653261323866333262333032352e706e67"><img src="https://camo.githubusercontent.com/856370ed1efc1de4028f9379f0b71e2f279dea5a6729b596b46d47dd2ad533ca/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38373364376332623864626234373865386131653261323866333262333032352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/873d7c2b8dbb478e8a1e2a28f32b3025.png" style="max-width: 100%;"></a></p>
+<p>下载kali-nethunter安装包</p>
+<pre class="notranslate"><code class="notranslate">wget -O install-nethunter-termux https://offs.ec/2MceZWr
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6e1fe6c305ba2685cb2a3b30325242d76ce04db78bde63425a224b2dbcb86d71/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31316632353131643332623534653935626434353966313937383037326439382e706e67"><img src="https://camo.githubusercontent.com/6e1fe6c305ba2685cb2a3b30325242d76ce04db78bde63425a224b2dbcb86d71/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31316632353131643332623534653935626434353966313937383037326439382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/11f2511d32b54e95bd459f1978072d98.png" style="max-width: 100%;"></a></p>
+<p>输入ls可以查看我们下载后的安装包</p>
+<pre class="notranslate"><code class="notranslate">ls
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c7d4bf386ca6e2600291d07dc75b2231a0f3162390faf92abcac05509142cb79/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66326634663132623930613434656237383861613533316239373935356563302e706e67"><img src="https://camo.githubusercontent.com/c7d4bf386ca6e2600291d07dc75b2231a0f3162390faf92abcac05509142cb79/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66326634663132623930613434656237383861613533316239373935356563302e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/f2f4f12b90a44eb788aa531b97955ec0.png" style="max-width: 100%;"></a></p>
+<p>我们给这个文件进行权限提升，然后再次查看。可以看到这个文件从原来的白色变成绿色，说明文件权限提升成功了。</p>
+<pre class="notranslate"><code class="notranslate">chmod +x install-nethunter-termux
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5aa4bff87a8eaac7ce100deb5a1d55ba8721638eeaa544396978d93ccf98716d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62376262666530616165366434366539383738363238383331626666653935642e706e67"><img src="https://camo.githubusercontent.com/5aa4bff87a8eaac7ce100deb5a1d55ba8721638eeaa544396978d93ccf98716d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62376262666530616165366434366539383738363238383331626666653935642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/b7bbfe0aae6d46e9878628831bffe95d.png" style="max-width: 100%;"></a></p>
+<p>输入以下命令开始安装</p>
+<p><strong>注意：这个过程最好建议挂代理下载。下载需要点时间。下载完的安装包有2GB，如果你下载很快的话，大概率没完全下载完毕，可能报错。会影响后面的安装。如果没下载完全的话可以重新运行以下命令。</strong></p>
+<pre class="notranslate"><code class="notranslate">./install-nethunter-termux
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/050279f687cc49681acb249b9c7614210d50fffba7507650016bce70406cfaf0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62326262646661626333646534663331393336626130303530666266303839332e706e67"><img src="https://camo.githubusercontent.com/050279f687cc49681acb249b9c7614210d50fffba7507650016bce70406cfaf0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62326262646661626333646534663331393336626130303530666266303839332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/b2bbdfabc3de4f31936ba0050fbf0893.png" style="max-width: 100%;"></a></p>
+<p>输入命令后回看到这个界面，我们输入“ <strong>1</strong> ”后回车进行完整安装kali nethunter。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/96ce32d305d5420dd5f4f00576e825a17a94632540cc9e0ee3b3f1fa0877e511/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39306565643166643136363634323433383232366465373066326138376362642e706e67"><img src="https://camo.githubusercontent.com/96ce32d305d5420dd5f4f00576e825a17a94632540cc9e0ee3b3f1fa0877e511/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39306565643166643136363634323433383232366465373066326138376362642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/90eed1fd166642438226de70f2a87cbd.png" style="max-width: 100%;"></a></p>
+<p>可以看到在下载kali安装包中。</p>
+<p><strong>注意：这里建议最好挂代理进行下载。不然可能下载不完整导致后面的步骤出现报错。</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b5e4d31ee80a7ff586b4b52d85cb57b52e558fcca849d90e36157918314384b6/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66316364343237306664393634623036393863383137323632396539306338622e706e67"><img src="https://camo.githubusercontent.com/b5e4d31ee80a7ff586b4b52d85cb57b52e558fcca849d90e36157918314384b6/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66316364343237306664393634623036393863383137323632396539306338622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/f1cd4270fd964b0698c8172629e90c8b.png" style="max-width: 100%;"></a></p>
+<p>安装完成后是这个样子的。安装包大约2GB。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/166e5c22e1d027a4cd8877b2bb2d18074ebd7cdddfe601ecc58694e482cbfee5/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31386533313363323238356634393566616263646262373536373136326662342e706e67"><img src="https://camo.githubusercontent.com/166e5c22e1d027a4cd8877b2bb2d18074ebd7cdddfe601ecc58694e482cbfee5/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31386533313363323238356634393566616263646262373536373136326662342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/18e313c2285f495fabcdbb7567162fb4.png" style="max-width: 100%;"></a></p>
+<p>输入 <strong>ls</strong> 命令可以查看到多出来一个名为” <strong>kali-nethunter-rootfs-full-arm64.tar.xz”</strong> 的文件。并且显示2GB左右。</p>
+<p><strong>如果你下载的时候很快的话。那大概率没下载完整。重新运行。确保你下载的安装包大概有2GB才是正确的。</strong></p>
+<pre class="notranslate"><code class="notranslate">ls -l
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2634e94e1b3d30fcf87523400aaecc632a850b1258b91d63c9f90a7fe4bdec68/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f36623961613335353037626634663364613739306361376634393261393931642e706e67"><img src="https://camo.githubusercontent.com/2634e94e1b3d30fcf87523400aaecc632a850b1258b91d63c9f90a7fe4bdec68/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f36623961613335353037626634663364613739306361376634393261393931642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/6b9aa35507bf4f3da790ca7f492a991d.png" style="max-width: 100%;"></a></p>
+<p>接下来重新输入以下命令进行安装kali。</p>
+<pre class="notranslate"><code class="notranslate">./install-nethunter-termux
+</code></pre>
+<p>同样的步骤输入“ <strong>1</strong> ”回车进行完整安装kali。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fe106cd98d50fb9431db67faff94f1d296ef9c30620b49268d3133ec8b9671cd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30353237653763343638623134666230393835636236653139363566646532332e706e67"><img src="https://camo.githubusercontent.com/fe106cd98d50fb9431db67faff94f1d296ef9c30620b49268d3133ec8b9671cd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30353237653763343638623134666230393835636236653139363566646532332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0527e7c468b14fb0985cb6e1965fde23.png" style="max-width: 100%;"></a></p>
+<p>到这一步可以直接回车默认。大写的N就是默认的选项。这里的意思是存在的镜像已找到。是否删除并下载一个新的？</p>
+<p>我们回车就是不删除我们刚刚下载好的镜像。这里保留着以后要是想重新安装kali就可以用这个镜像直接安装了，不需要重新下载。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a6e7b6b1acfeda6c7eadf7dd68771391e33e9ad6aee6d28d0deb546568835361/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31356439373631626565636334626136616261623330656630363334356564342e706e67"><img src="https://camo.githubusercontent.com/a6e7b6b1acfeda6c7eadf7dd68771391e33e9ad6aee6d28d0deb546568835361/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31356439373631626565636334626136616261623330656630363334356564342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/15d9761beecc4ba6abab30ef06345ed4.png" style="max-width: 100%;"></a></p>
+<p>这里就是在解压并安装镜像。 <strong>这个过程非常久</strong> ，取决于你的设备性能。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8f9d41fa19e1a581f858eb087d211783db499222713353a33fa732081f3136ec/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31326532663761303739306634616432396130636233373637333734663261352e706e67"><img src="https://camo.githubusercontent.com/8f9d41fa19e1a581f858eb087d211783db499222713353a33fa732081f3136ec/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31326532663761303739306634616432396130636233373637333734663261352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/12e2f7a0790f4ad29a0cb3767374f2a5.png" style="max-width: 100%;"></a></p>
+<p>这一步意思是是否删除 <strong>rootfs</strong> 文件？直接回车就是选择 <strong>N</strong> ，否。这样就不会删除这个文件了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8e39e2f71f9e26ea3eb183e2275ddb78e042214cee360d54cf9f29b994d65b49/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65663066613931616562336434343936393932373230373965653761666664312e706e67"><img src="https://camo.githubusercontent.com/8e39e2f71f9e26ea3eb183e2275ddb78e042214cee360d54cf9f29b994d65b49/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65663066613931616562336434343936393932373230373965653761666664312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/ef0fa91aeb3d449699272079ee7affd1.png" style="max-width: 100%;"></a></p>
+<h3><strong>注意：如果出现如下图的情况，请跟着步骤来解决。经证实，2024版的 安装脚本(install-nethunter-termux) 会出现这个问题，老版本的不会出现这个问题。</strong></h3>
+<pre class="notranslate"><code class="notranslate">[*] Configuring NetHunter for Termux ...
+chmod: cannot access 'chroot/kali-arm64/usr/bin/sudo': No such file or directory
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b203ecaedb44c1c705ea9df8e2cf6d074c405b352ceed72bf658030517135249/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31313466666233666337363234613965613938316562336131373335343832372e706e67"><img src="https://camo.githubusercontent.com/b203ecaedb44c1c705ea9df8e2cf6d074c405b352ceed72bf658030517135249/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31313466666233666337363234613965613938316562336131373335343832372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/114ffb3fc7624a9ea981eb3a17354827.png" style="max-width: 100%;"></a></p>
+<p>通过ls命令可以看到我们当前有这些文件。我们需要创建一个名叫“ <strong>chroot</strong> ”的文件夹。并且把” <strong>kali-arm64</strong> “移动到“ <strong>chroot</strong> ”文件夹里面去。</p>
+<pre class="notranslate"><code class="notranslate">#创建chroot文件夹
+mkdir chroot
+#移动kali-arm64文件夹到chroot文件夹
+mv kali-arm64/ chroot/
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/19d53838d5ce121b67f747404fc470924384795fab6cd8a93e8f1bab09adfb2f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63623062643739343930363634663961623963333539363963623862633435362e706e67"><img src="https://camo.githubusercontent.com/19d53838d5ce121b67f747404fc470924384795fab6cd8a93e8f1bab09adfb2f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63623062643739343930363634663961623963333539363963623862633435362e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/cb0bd79490664f9ab9c35969cb8bc456.png" style="max-width: 100%;"></a></p>
+<p>之后重新运行同样的命令完成安装。后面的步骤同上。都是直接回车默认。</p>
+<pre class="notranslate"><code class="notranslate">./install-nethunter-termux
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e11026ab2b22ba86770c5f55929433fe664e8d9f56628e42b59fc503ac1ec69f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39626466343065366335353634386131623661663962613235663635383534312e706e67"><img src="https://camo.githubusercontent.com/e11026ab2b22ba86770c5f55929433fe664e8d9f56628e42b59fc503ac1ec69f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39626466343065366335353634386131623661663962613235663635383534312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/9bdf40e6c55648a1b6af9ba25f658541.png" style="max-width: 100%;"></a></p>
+<p>出现这个界面就表示安装成功了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2104073b175c40a682ffd232e2a8e76036a542ce0dfcc48009460e4be76046b2/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33326161336430383335316534306633626464386139633231333332633437302e706e67"><img src="https://camo.githubusercontent.com/2104073b175c40a682ffd232e2a8e76036a542ce0dfcc48009460e4be76046b2/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33326161336430383335316534306633626464386139633231333332633437302e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/32aa3d08351e40f3bdd8a9c21332c470.png" style="max-width: 100%;"></a></p>
+<h2>使用</h2>
+<h3>1. nethunter</h3>
+<p>启动 Kali NetHunter 命令行界面。</p>
+<p>​​​​<code class="notranslate">nethunter</code>命令可以缩写为<code class="notranslate">nh。</code></p>
+<pre class="notranslate"><code class="notranslate">nethunter 或 nh
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/44d211fdb2d87736f38b898c18443f30d2936336e5eb9afda2aa782412dff2a4/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64343966626166396630383534626138386232363263363564383437343937372e706e67"><img src="https://camo.githubusercontent.com/44d211fdb2d87736f38b898c18443f30d2936336e5eb9afda2aa782412dff2a4/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64343966626166396630383534626138386232363263363564383437343937372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/d49fbaf9f0854ba88b262c65d8474977.png" style="max-width: 100%;"></a></p>
+<p>出现这个界面就是进入kali的终端界面了。</p>
+<p>在kali nethunter安装后首先运行以下命令以更新Kali</p>
+<pre class="notranslate"><code class="notranslate">#先输入nh进入kali终端
+nh 或 nethunter
+
+#更新kali
+sudo apt update &amp;&amp; sudo apt upgrade -y
+
+#输入密码,密码是"kali",因为要用到root权限才能运行更新命令
+</code></pre>
+<p>输入exit退出kali终端。</p>
+<pre class="notranslate"><code class="notranslate">exit
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/22394d398408155586352c9309debe2558f97bff266931a75005fef43528edf7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34356564313161616437353234303035386462373965383865373130316632322e706e67"><img src="https://camo.githubusercontent.com/22394d398408155586352c9309debe2558f97bff266931a75005fef43528edf7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34356564313161616437353234303035386462373965383865373130316632322e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/45ed11aad75240058db79e88e7101f22.png" style="max-width: 100%;"></a></p>
+<h3>2. nethunter kex passwd</h3>
+<p>配置 <strong>KeX</strong> 密码（仅在第一次使用前需要）。这个命令可以为后面实现 <strong>kali图形化</strong> 。</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex passwd
+</code></pre>
+<p>要使用 <strong>KeX</strong> ，得设置一个密码，这里的" <strong>Password"</strong> 输入你想要设置的密码。输入密码时是不显示密码的位数的，这是正常的情况。</p>
+<p>" <strong>Verify</strong> "是指验证。这里重新输入你刚才输入的密码，确保你两次输入的密码都是一样的。</p>
+<p>最后这里提示是：您是否要输入只读密码 (y/n)？我这里输入“y“确认。密码同上。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9bbf1d9b60219a44417d67b210bfedc8937486a5d4e9dee47fbe797c86f01f7d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64343266646531633832613234636134396434356636393836333735323364632e706e67"><img src="https://camo.githubusercontent.com/9bbf1d9b60219a44417d67b210bfedc8937486a5d4e9dee47fbe797c86f01f7d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64343266646531633832613234636134396434356636393836333735323364632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/d42fde1c82a24ca49d45f698637523dc.png" style="max-width: 100%;"></a></p>
+<h3>3. nethunter kex &amp;</h3>
+<p>启动 Kali NetHunter 桌面体验用户会话</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex &amp;
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/01e9bd29d76e88c92160f7593742873774ad42e5ced1e9ec7340845877b8b8f0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30633032346566396630346234323964616365306439343866313266336131632e706e67"><img src="https://camo.githubusercontent.com/01e9bd29d76e88c92160f7593742873774ad42e5ced1e9ec7340845877b8b8f0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30633032346566396630346234323964616365306439343866313266336131632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0c024ef9f04b429dace0d948f12f3a1c.png" style="max-width: 100%;"></a></p>
+<h3>4. nethunter kex stop</h3>
+<p>停止 Kali NetHunter 桌面体验</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex stop
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/475a13edf0c0cfaf6a77c640c050961304c42f9152b74955d4072839542368ce/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31353966323130343462356334666139393032613966393331366264363239372e706e67"><img src="https://camo.githubusercontent.com/475a13edf0c0cfaf6a77c640c050961304c42f9152b74955d4072839542368ce/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31353966323130343462356334666139393032613966393331366264363239372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/159f21044b5c4fa9902a9f9316bd6297.png" style="max-width: 100%;"></a></p>
+<h3>5. nethunter </h3>
+<p>在NetHunter环境中运行命令</p>
+<p>例如：在kali里面运行ifconfig命令查看网络状态信息等。</p>
+<pre class="notranslate"><code class="notranslate">nethunter ifconfig
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/463246cd236ed87364a0d54720db3310fab523f8152a49466d4e4dc213709334/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38343563376561623461353834623537386232633932393837356463626635302e706e67"><img src="https://camo.githubusercontent.com/463246cd236ed87364a0d54720db3310fab523f8152a49466d4e4dc213709334/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38343563376561623461353834623537386232633932393837356463626635302e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/845c7eab4a584b578b2c929875dcbf50.png" style="max-width: 100%;"></a></p>
+<h3>6. nethunter -r</h3>
+<p>以 root 身份启动 Kali NetHunter cli</p>
+<pre class="notranslate"><code class="notranslate">nethunter -r
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dc4343b2246586ad202a4d314acd3183667cf07b0be47f7b113d9904feefbfba/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34373030363436623965376434326538383836373230336664616338366132662e706e67"><img src="https://camo.githubusercontent.com/dc4343b2246586ad202a4d314acd3183667cf07b0be47f7b113d9904feefbfba/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34373030363436623965376434326538383836373230336664616338366132662e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/4700646b9e7d42e88867203fdac86a2f.png" style="max-width: 100%;"></a></p>
+<h3>7. nethunter -r kex passwd</h3>
+<p>配置 root 的 KeX 密码，原理同 <strong>nethunter kex passwd</strong> 一样 <strong>。</strong></p>
+<pre class="notranslate"><code class="notranslate">nethunter -r kex passwd
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f2b74a0e344532b9ad72da32f0b6cda7e25872d28388c393182f2a4fe20debef/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38333134306436326134383834353036396361303437303734396135393838372e706e67"><img src="https://camo.githubusercontent.com/f2b74a0e344532b9ad72da32f0b6cda7e25872d28388c393182f2a4fe20debef/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38333134306436326134383834353036396361303437303734396135393838372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/83140d62a48845069ca0470749a59887.png" style="max-width: 100%;"></a></p>
+<h3>8. nethunter -r kex &amp;</h3>
+<p>以 root 身份启动 Kali NetHunter 桌面体验</p>
+<pre class="notranslate"><code class="notranslate">nethunter -r kex &amp;
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e465cab3095798745b0ce163c6c5800475fdd6a68cf9832f8f9103abc652cf10/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30626338663663633433346334626136623038333263333962313635363235342e706e67"><img src="https://camo.githubusercontent.com/e465cab3095798745b0ce163c6c5800475fdd6a68cf9832f8f9103abc652cf10/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30626338663663633433346334626136623038333263333962313635363235342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0bc8f6cc434c4ba6b0832c39b1656254.png" style="max-width: 100%;"></a></p>
+<h3>9. nethunter -r kex stop</h3>
+<p>停止 Kali NetHunter Desktop Experience 根会话</p>
+<pre class="notranslate"><code class="notranslate">nethunter -r kex stop
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3c9383e4dea29fdfbecc83bd3129284c679c7a7f074b50bb8af09243834ad8f9/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30633530656431303931386534383131613039633335373962613930366437622e706e67"><img src="https://camo.githubusercontent.com/3c9383e4dea29fdfbecc83bd3129284c679c7a7f074b50bb8af09243834ad8f9/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30633530656431303931386534383131613039633335373962613930366437622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0c50ed10918e4811a09c3579ba906d7b.png" style="max-width: 100%;"></a></p>
+<h3>10. nethunter -r kex kill</h3>
+<p>终止所有 KeX 会话</p>
+<pre class="notranslate"><code class="notranslate">nethunter -r kex kill
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ff2b545c97b565aff4727386993596abf457acd3c9f715e09bd459e2f305024b/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32633431656164323564366534323661613230386637326238616235363036392e706e67"><img src="https://camo.githubusercontent.com/ff2b545c97b565aff4727386993596abf457acd3c9f715e09bd459e2f305024b/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32633431656164323564366534323661613230386637326238616235363036392e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/2c41ead25d6e426aa208f72b8ab56069.png" style="max-width: 100%;"></a></p>
+<h3>11. nethunter -r </h3>
+<p>以 root 身份在 NetHunter 环境中运行<code class="notranslate">命令</code></p>
+<p><code class="notranslate">例如:查看passwd文件的内容</code></p>
+<pre class="notranslate"><code class="notranslate">nethunter -r cat /etc/passwd
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1af1ad8be24a79b970e80a6ccec1cb3d3ba3720d883ed830a9773d9f5b769f0f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32333864313238363633363434396237623837626662633162393932373936652e706e67"><img src="https://camo.githubusercontent.com/1af1ad8be24a79b970e80a6ccec1cb3d3ba3720d883ed830a9773d9f5b769f0f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32333864313238363633363434396237623837626662633162393932373936652e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/238d1286636449b7b87bfbc1b992796e.png" style="max-width: 100%;"></a></p>
+<h2>使用VNC工具实现Kali Linux图形化</h2>
+<p>确保你有上文提到的的VNC工具，或者其他的VNC工具。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ddcdb8849f7506511cdec19a81ed1ded513567c04df7fad3d052163d26e5cdfd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38323639633563313839633534333434626461653432613237656232666530372e706e67"><img src="https://camo.githubusercontent.com/ddcdb8849f7506511cdec19a81ed1ded513567c04df7fad3d052163d26e5cdfd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38323639633563313839633534333434626461653432613237656232666530372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/8269c5c189c54344bdae42a27eb2fe07.png" style="max-width: 100%;"></a><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ee7fa9d10d64674b697e6302b32f2b65f96b64a150bd167ca9d957eb8c55348f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30333064643366613036663034366565626531633033363465626565663631632e706e67"><img src="https://camo.githubusercontent.com/ee7fa9d10d64674b697e6302b32f2b65f96b64a150bd167ca9d957eb8c55348f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30333064643366613036663034366565626531633033363465626565663631632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/030dd3fa06f046eebe1c0364ebeef61c.png" style="max-width: 100%;"></a></p>
+<h3>这里我使用老版本的kali-nethunter镜像，2024版的有问题开启不了kex。后面会教如何下载老版本的kali-nethunter镜像。</h3>
+<h3>NetHunter Kex</h3>
+<p>通过上文提到的 <strong>Kali NetHunter App Store</strong> 应用商店下载。</p>
+<p>我们先在Termux里面开启 <strong>kex</strong> 服务。如果你是第一次使用的话记得通过以下命令去设置好一个密码。在上文也提到怎么使用，这里不再叙述。</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex passwd
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1346e2648238c1d33fc0ee702f5960e1cc1372d4b847a69686c02ca6f48d527f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39656431366539613532626434646531386532363161653862366365356336612e706e67"><img src="https://camo.githubusercontent.com/1346e2648238c1d33fc0ee702f5960e1cc1372d4b847a69686c02ca6f48d527f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39656431366539613532626434646531386532363161653862366365356336612e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/9ed16e9a52bd4de18e261ae8b6ce5c6a.png" style="max-width: 100%;"></a>在Termux里面开启kex服务。记住这里的端口号，后面会用到，每个人的可能都不一样。</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex 
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b79b8db2b3a6f1e851db19ff8336a6628d5cb65b9b817f0419045aca5c3850ba/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65336162636137313134393934663430386530356365626665646463626539332e706e67"><img src="https://camo.githubusercontent.com/b79b8db2b3a6f1e851db19ff8336a6628d5cb65b9b817f0419045aca5c3850ba/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65336162636137313134393934663430386530356365626665646463626539332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/e3abca7114994f408e05cebfeddcbe93.png" style="max-width: 100%;"></a></p>
+<p>之后挂着不要关闭Termux，打开NetHunter Kex，点击右上角的+号。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d024f6b2ac816c0928274ff9ed14d94b650c04760b896b7d34eeea814a50bb6f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30663332383739306163623434373636396366333631376662383236643365372e706e67"><img src="https://camo.githubusercontent.com/d024f6b2ac816c0928274ff9ed14d94b650c04760b896b7d34eeea814a50bb6f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30663332383739306163623434373636396366333631376662383236643365372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/0f328790acb447669cf3617fb826d3e7.png" style="max-width: 100%;"></a></p>
+<p>地址设置为127.0.0.1，修改端口号为5901，输入我们之前设置好的密码，点击右上角的保存图标。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/14ca7cff210be3da9c963e2917714eac6211b47f47d6ba6839bd606d0c9f6236/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64636236313661323633323034346566393231623766326433616463303565352e706e67"><img src="https://camo.githubusercontent.com/14ca7cff210be3da9c963e2917714eac6211b47f47d6ba6839bd606d0c9f6236/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64636236313661323633323034346566393231623766326433616463303565352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/dcb616a2632044ef921b7f2d3adc05e5.png" style="max-width: 100%;"></a></p>
+<p>保存好后就会回到主页，此时可以看到我们刚刚设置好的VNC。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c7045f587f8ea69bb9b446f5c9b79c4fa57beac58df5c8300fe24309b4be0960/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62313632613934336662326534336434613066373131393362636533366531362e706e67"><img src="https://camo.githubusercontent.com/c7045f587f8ea69bb9b446f5c9b79c4fa57beac58df5c8300fe24309b4be0960/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62313632613934336662326534336434613066373131393362636533366531362e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/b162a943fb2e43d4a0f71193bce36e16.png" style="max-width: 100%;"></a></p>
+<p>我们点击就可以打开kali-nethunter的图形界面了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0520fe3733ac1821cc7d99c2e88f60ed0c0850ded4492d0a40d5322feb04e15c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31623936393534613736653334303565623962343437343234366564306437372e706e67"><img src="https://camo.githubusercontent.com/0520fe3733ac1821cc7d99c2e88f60ed0c0850ded4492d0a40d5322feb04e15c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31623936393534613736653334303565623962343437343234366564306437372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/1b96954a76e3405eb9b4474246ed0d77.png" style="max-width: 100%;"></a></p>
+<p>点击三个点的设置选项。点击切断就可以断开连接了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1a229754861a07abbe3b5f510f3ec8e41d8c2b1601943448dcb4192d740f5b33/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34626561336236663464346134343661623463643531376161376238376362302e706e67"><img src="https://camo.githubusercontent.com/1a229754861a07abbe3b5f510f3ec8e41d8c2b1601943448dcb4192d740f5b33/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34626561336236663464346134343661623463643531376161376238376362302e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/4bea3b6f4d4a446ab4cd517aa7b87cb0.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d5d34998b447ec29a907b09eb933e6359e4d706e3aeea43100fe9f76ab737ef7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65323039346231373964363534343031396161393664303733653937626661632e706e67"><img src="https://camo.githubusercontent.com/d5d34998b447ec29a907b09eb933e6359e4d706e3aeea43100fe9f76ab737ef7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65323039346231373964363534343031396161393664303733653937626661632e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/e2094b179d6544019aa96d073e97bfac.png" style="max-width: 100%;"></a></p>
+<p>如何使用鼠标等操作请自行探索。这里不展开叙述。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f25efba3567cb1459ea21faa9947ea6e012863a533e76da71d6e346bf16cc37d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62393163363630313139373034363266383136653363646165306536653933372e706e67"><img src="https://camo.githubusercontent.com/f25efba3567cb1459ea21faa9947ea6e012863a533e76da71d6e346bf16cc37d/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62393163363630313139373034363266383136653363646165306536653933372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/b91c66011970462f816e3cdae0e6e937.png" style="max-width: 100%;"></a></p>
+<h3>RVNC Viewer</h3>
+<p>我们使用第三方的VNC，我这里使用RVNC Viewer。方法也是一样。先在Termux里面开启kex服务。</p>
+<pre class="notranslate"><code class="notranslate">nethunter kex 
+</code></pre>
+<p>然后我们去打开RVNC Viewer。这里要求登陆，我们可以不用管，直接点击+号。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f77c78b7af83faf6a5112a8db5a020fda749046f04a54ea2b75342e585c0c258/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62613938633731353861613234316361616438623230363430323336306538382e706e67"><img src="https://camo.githubusercontent.com/f77c78b7af83faf6a5112a8db5a020fda749046f04a54ea2b75342e585c0c258/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62613938633731353861613234316361616438623230363430323336306538382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/ba98c7158aa241caad8b206402360e88.png" style="max-width: 100%;"></a></p>
+<p>这里我们地址Address写127.0.0.1:5901，名称Name可以随便起，我这里就写kali-nethunter。然后点击CREATE创建。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6308a9dadc952eb263916722ebf72f03c5201d7c0212299342609887656bc62e/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61313264306362646432656234316438386263366539343366356230386430312e706e67"><img src="https://camo.githubusercontent.com/6308a9dadc952eb263916722ebf72f03c5201d7c0212299342609887656bc62e/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61313264306362646432656234316438386263366539343366356230386430312e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/a12d0cbdd2eb41d88bc6e943f5b08d01.png" style="max-width: 100%;"></a></p>
+<p>创建完成后我们来到这个页面。这里可以调整Picture quality(图像质量)，默认Automatic(自动)。可以自己设置。点击Connect（连接）。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3706e0b18e542b25dd87d60e561c57ed093df9fec8cb10743c103eff3ae1074f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33626662326231316133346234383834626338666531643930353765383139342e706e67"><img src="https://camo.githubusercontent.com/3706e0b18e542b25dd87d60e561c57ed093df9fec8cb10743c103eff3ae1074f/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f33626662326231316133346234383834626338666531643930353765383139342e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/3bfb2b11a34b4884bc8fe1d9057e8194.png" style="max-width: 100%;"></a></p>
+<p>出现这个页面我们不用理会，点击右上角的OK按钮继续。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/875c3a858b8bf02241d8f87d1accf387f06f324362aa76bf9943a034370c5467/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64346231346133376333306634396361393630656363333439303734346332382e706e67"><img src="https://camo.githubusercontent.com/875c3a858b8bf02241d8f87d1accf387f06f324362aa76bf9943a034370c5467/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64346231346133376333306634396361393630656363333439303734346332382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/d4b14a37c30f49ca960ecc3490744c28.png" style="max-width: 100%;"></a></p>
+<p>这里输入我们设置的密码，下面的Remember password(记住密码)可以开启，这样下次就不用再输入密码了。输入好密码后点击右上角的CONTINUE（继续）。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/cca5fc0b2fde62e86b7f5353369ffafc23eabc4a1dd60f29e9e57e2969df341c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39363966383366373061383434303834626531396430393865646532353233332e706e67"><img src="https://camo.githubusercontent.com/cca5fc0b2fde62e86b7f5353369ffafc23eabc4a1dd60f29e9e57e2969df341c/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f39363966383366373061383434303834626531396430393865646532353233332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/969f83f70a844084be19d098ede25233.png" style="max-width: 100%;"></a></p>
+<p>之后我们就进入kali的图形化界面了。关于操作部分，请自行探索。建议画面质量调成High（高画质）比较好。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a1d334acbd4423ed46fb13bd0cea7d65a4f90b223b53025ad12d6adf7ab64cd6/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65393366336234353131656134636131393134353365366365313731303764642e706e67"><img src="https://camo.githubusercontent.com/a1d334acbd4423ed46fb13bd0cea7d65a4f90b223b53025ad12d6adf7ab64cd6/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65393366336234353131656134636131393134353365366365313731303764642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/e93f3b4511ea4ca191453e6ce17107dd.png" style="max-width: 100%;"></a></p>
+<h2>额外：安装老版本kali-nethunter</h2>
+<p>这几天在写教程的时候也遇到了一些问题。安装和vnc这方面一直遇到阻力。特别是安装着一块。不论是换新旧版本的Termux，还是挂与不挂代理下载，都有问题。经过我这几天的实测。原来是安装脚本" <strong>install-nethunter-termux</strong> "出了问题。默认在获取脚本命令的时候它是会下载最新的安装脚本。即2024版的。</p>
+<p>2024版的脚本安装会出现我上面写过的一个错误问题。并且运行kex也一直报错。老版本的就不会。</p>
+<p>接下来教大家怎么安装老版本的脚本。</p>
+<p>通过官方的仓库可以看到有多个历史版本的脚本。</p>
+<p><a href="https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-rootless/-/tree/main?ref_type=heads" title="Files · main · Kali Linux / NetHunter / Build-Scripts / kali-nethunter-rootless · GitLab" rel="nofollow">Files · main · Kali Linux / NetHunter / Build-Scripts / kali-nethunter-rootless · GitLab</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/40204cbfbdb5b67b867be03066457901801ceb6ea87d0ca1097b561a3c8a6f32/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63393230363530386265613834633836393139343562343535383766363636622e706e67"><img src="https://camo.githubusercontent.com/40204cbfbdb5b67b867be03066457901801ceb6ea87d0ca1097b561a3c8a6f32/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f63393230363530386265613834633836393139343562343535383766363636622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/c9206508bea84c8691945b45587f666b.png" style="max-width: 100%;"></a></p>
+<p>点击这里的main，可以看到一些历史版本的脚本。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/181a7bdf5e208f827c28217f4d4e614b69e5a2d828b008afed2fd53e9447e6bf/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35316164656333663863626534373835393037396364313066613638643261362e706e67"><img src="https://camo.githubusercontent.com/181a7bdf5e208f827c28217f4d4e614b69e5a2d828b008afed2fd53e9447e6bf/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35316164656333663863626534373835393037396364313066613638643261362e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/51adec3f8cbe47859079cd10fa68d2a6.png" style="max-width: 100%;"></a></p>
+<p>我演示使用的是2022.4版本的脚本，通过新旧版本的脚本对比，可以发现这里的版本和链接都不一样。</p>
+<p><strong>2024.4版</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/217e6f79146c7e7ab0887ad8f2fa72235b938184dc2ca6035bcaec79f194cfc1/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66326136626465343464306234393962626464303564666366623938663139332e706e67"><img src="https://camo.githubusercontent.com/217e6f79146c7e7ab0887ad8f2fa72235b938184dc2ca6035bcaec79f194cfc1/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f66326136626465343464306234393962626464303564666366623938663139332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/f2a6bde44d0b499bbdd05dfcfb98f193.png" style="max-width: 100%;"></a></p>
+<p><strong>2022.4版</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/63b82ea337f303e09641a37b523ea0146d134ab5ffd8b17a1f42aa93e4acad48/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62633530653033663336633534353364623537663036373838316139643237352e706e67"><img src="https://camo.githubusercontent.com/63b82ea337f303e09641a37b523ea0146d134ab5ffd8b17a1f42aa93e4acad48/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f62633530653033663336633534353364623537663036373838316139643237352e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/bc50e03f36c5453db57f067881a9d275.png" style="max-width: 100%;"></a></p>
+<h3>安装</h3>
+<p>可以直接通过下载到本地，然后传到Termux。</p>
+<p>点击这里下载到本地。一般都是下载到 <strong>Download</strong> 文件夹里面去。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/dc7a6b9d2f07e018c9eb59683e1ddfd9fe16cce8b69a3274d9e9739f75cd96b7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61633061366563653037373634313134386538383561633134643435383061392e706e67"><img src="https://camo.githubusercontent.com/dc7a6b9d2f07e018c9eb59683e1ddfd9fe16cce8b69a3274d9e9739f75cd96b7/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61633061366563653037373634313134386538383561633134643435383061392e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/ac0a6ece077641148e885ac14d4580a9.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e789d7fa86da96f5880630726be25041df7c477f5536dcb8d7746770068f8455/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35303437633938616563393934343035626638366164616462353931396136382e706e67"><img src="https://camo.githubusercontent.com/e789d7fa86da96f5880630726be25041df7c477f5536dcb8d7746770068f8455/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35303437633938616563393934343035626638366164616462353931396136382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/5047c98aec994405bf86adadb5919a68.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0b2eb250a8e121ddb0d869182a91ac046aaca708fd1808536fff293f7101fc27/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61306335363266303934306234346566386662303531653239383035663538372e706e67"><img src="https://camo.githubusercontent.com/0b2eb250a8e121ddb0d869182a91ac046aaca708fd1808536fff293f7101fc27/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f61306335363266303934306234346566386662303531653239383035663538372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/a0c562f0940b44ef8fb051e29805f587.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/61ff4e0871b09461fc7845874db501c03c6f7141e80ff0b460490586685d26b0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f37313732396636303832356434656431396238386231653835633932356436382e706e67"><img src="https://camo.githubusercontent.com/61ff4e0871b09461fc7845874db501c03c6f7141e80ff0b460490586685d26b0/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f37313732396636303832356434656431396238386231653835633932356436382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/71729f60825d4ed19b88b1e85c925d68.png" style="max-width: 100%;"></a></p>
+<p>打开我们的Termux，把下载好的脚本移动到我们的Termux目录去。</p>
+<pre class="notranslate"><code class="notranslate">#查看当前的目录路径
+pwd
+
+#查看当前有哪些文件。这里可以看到storage文件夹。
+#需要通过termux-setup-storage命令去开启。不开启的话是没有这个文件夹显示的。
+ls
+
+#进入download文件夹目录
+cd storage/downloads
+
+#可以看到install-nethunter-termux脚本
+ls
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3b32f736224f842058e5d51f6fcf1e0a4a41ab0371bbad41f3c2defb83561bcd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34316238386236356134623634666365386165373161396636623834386333622e706e67"><img src="https://camo.githubusercontent.com/3b32f736224f842058e5d51f6fcf1e0a4a41ab0371bbad41f3c2defb83561bcd/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34316238386236356134623634666365386165373161396636623834386333622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/41b88b65a4b64fce8ae71a9f6b848c3b.png" style="max-width: 100%;"></a></p>
+<p>移动脚本到termux在home目录里面去。</p>
+<pre class="notranslate"><code class="notranslate">#移动脚本到主目录
+mv install-nethunter-termux /data/data/com.termux/files/home
+
+#回到主目录
+cd
+
+#查看当前文件
+ls
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3c29becc372fb7945bf263554904e2817ee0a0a57fd081e513fc07a9d2de8a51/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32643862363231326439646434626263616530663439626665383066366334392e706e67"><img src="https://camo.githubusercontent.com/3c29becc372fb7945bf263554904e2817ee0a0a57fd081e513fc07a9d2de8a51/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f32643862363231326439646434626263616530663439626665383066366334392e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/2d8b6212d9dd4bbcae0f49bfe80f6c49.png" style="max-width: 100%;"></a></p>
+<h3>修改代码</h3>
+<p>在我们使用前需要修改一下代码。不然直接运行是运行不了的。原因是老脚本用的还是老的下载链接。运行的话必会报404的错误，因为链接已经不存在了。所以我们需要去修改一下。</p>
+<p>输入以下命令使用nano工具进行修改代码</p>
+<pre class="notranslate"><code class="notranslate">nano install-nethunter-termux
+</code></pre>
+<p>我们要修改一下链接。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3448242b58c4c9b2e570170a6c495def870c9173f23080b141f3f9cc9a4f9c75/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34363866363564633236653134616633396562343861303934346532386231372e706e67"><img src="https://camo.githubusercontent.com/3448242b58c4c9b2e570170a6c495def870c9173f23080b141f3f9cc9a4f9c75/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f34363866363564633236653134616633396562343861303934346532386231372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/468f65dc26e14af39eb48a0944e28b17.png" style="max-width: 100%;"></a></p>
+<p>通过这个链接我们找到kali-nethunter的历史版本。</p>
+<p><a href="https://kali.download/nethunter-images/current/rootfs/" rel="nofollow">https://kali.download/nethunter-images/current/rootfs/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/194a1a0d29f5f80fab1cecf48b8f567cdc0c9023f98c8e5633160a18a351b6cc/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f36643166346239393062343634613063613336333833366663663537373362382e706e67"><img src="https://camo.githubusercontent.com/194a1a0d29f5f80fab1cecf48b8f567cdc0c9023f98c8e5633160a18a351b6cc/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f36643166346239393062343634613063613336333833366663663537373362382e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/6d1f4b990b464a0ca363836fcf5773b8.png" style="max-width: 100%;"></a></p>
+<p>不过我不下载2024版的，我下载的是2022.4版的kali-nethunter镜像。</p>
+<p>通过这个链接可以查看到kali官方的历史版本镜像下载。</p>
+<p><strong>注意这里的链接域名和上面的域名不一样的。都是官方的镜像，注意区分。</strong></p>
+<p><a href="https://old.kali.org/nethunter-images/" title="Index of /nethunter-images/" rel="nofollow">Index of /nethunter-images/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/71241015c74adf06c296b91cd9bf77b08e3940aeb382fcf4f3f6dc3dd134ca27/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65663830313639366133336634373535613931356165343333336135666637332e706e67"><img src="https://camo.githubusercontent.com/71241015c74adf06c296b91cd9bf77b08e3940aeb382fcf4f3f6dc3dd134ca27/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f65663830313639366133336634373535613931356165343333336135666637332e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/ef801696a33f4755a915ae4333a5ff73.png" style="max-width: 100%;"></a></p>
+<p>找到2022.4版本的镜像地址。我的架构是arm64的。当然你要找其他版本的也是同理。</p>
+<p><a href="https://old.kali.org/nethunter-images/kali-2022.4/rootfs/" title="Index of /nethunter-images/kali-2022.4/rootfs/" rel="nofollow">Index of /nethunter-images/kali-2022.4/rootfs/</a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4227df7f228df7b49d8e3e3371f21482fa9412e738f36084ac2945210b1dbce2/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31336462623836316364393534653937626430343463326233353463623965652e706e67"><img src="https://camo.githubusercontent.com/4227df7f228df7b49d8e3e3371f21482fa9412e738f36084ac2945210b1dbce2/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f31336462623836316364393534653937626430343463326233353463623965652e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/13dbb861cd954e97bd044c2b354cb9ee.png" style="max-width: 100%;"></a></p>
+<p>回到Termux，进行链接地址的修改。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/69b4ec80df419ef8f47ceae81e26ccfd6be4ed79fc0f4a67e9f74a58e488ebb8/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38353665303561653064393534386234383536303632633633613531326632322e706e67"><img src="https://camo.githubusercontent.com/69b4ec80df419ef8f47ceae81e26ccfd6be4ed79fc0f4a67e9f74a58e488ebb8/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f38353665303561653064393534386234383536303632633633613531326632322e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/856e05ae0d9548b4856062c63a512f22.png" style="max-width: 100%;"></a></p>
+<p>按 <strong>Ctrl + O</strong> 进行保存。提示是否写入到install-nethunter-termux，直接回车。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5a062ee6b1ee0d680d69fe2272113fdb9baaea63abde4b07502f1e95c426b643/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35633730666565613366326534343732396536626264366133623832383663622e706e67"><img src="https://camo.githubusercontent.com/5a062ee6b1ee0d680d69fe2272113fdb9baaea63abde4b07502f1e95c426b643/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f35633730666565613366326534343732396536626264366133623832383663622e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/5c70feea3f2e44729e6bbd6a3b8286cb.png" style="max-width: 100%;"></a></p>
+<p>接下来按 <strong>Ctrl + X</strong> 退出编辑。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7afd0c90481f22bd994cbf44f0cf5be3995ba4ccb827fc0d9a706ff712dde149/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64303431333534353833653534626163626533343533383330666133363565642e706e67"><img src="https://camo.githubusercontent.com/7afd0c90481f22bd994cbf44f0cf5be3995ba4ccb827fc0d9a706ff712dde149/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f64303431333534353833653534626163626533343533383330666133363565642e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/d041354583e54bacbe3453830fa365ed.png" style="max-width: 100%;"></a></p>
+<h3>运行</h3>
+<p>运行以下命令进行运行，后面步骤就和上面的一样。</p>
+<pre class="notranslate"><code class="notranslate">./install-nethunter-termux
+</code></pre>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f9163ddc11cf4a6058529232d77e9fea0b0b0e9684bfd2b918fcd605fd9374e8/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30386464653065663337383334393935626565303061353037623363623937372e706e67"><img src="https://camo.githubusercontent.com/f9163ddc11cf4a6058529232d77e9fea0b0b0e9684bfd2b918fcd605fd9374e8/68747470733a2f2f692d626c6f672e6373646e696d672e636e2f6469726563742f30386464653065663337383334393935626565303061353037623363623937372e706e67" alt="" data-canonical-src="https://i-blog.csdnimg.cn/direct/08dde0ef37834995bee00a507b3cb977.png" style="max-width: 100%;"></a></p>
+<p>可以看到开始在下载老版本的镜像了。</p>
+<p>同理也可以使用这个2022.2的脚本去下载其他版本的kali-nethunter镜像。这里不再叙述。</p>
+<h2>总结</h2>
+<ol>
+<li>
+<p>安装后第一件事运行 Kali 更新。如果您有足够的可用存储空间，您可能也希望运行。</p>
+<p>sudo apt update &amp;&amp; sudo apt full-upgrade -y<br>
+sudo apt install -y kali-linux-default</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4479ddf88c98a568af3788d296aad350011cda1f5d4e4053716e20026aa18ca9/68747470733a2f2f696d672d686f6d652e6373646e696d672e636e2f696d616765732f32303233303732343032343135392e706e673f6f726967696e5f75726c3d64617461253341696d61676525324667696625334262617365363425324352306c474f446c6841514142415041424150253246253246253246774141414348354241454b414141414c414141414141424141454141414943524145414f7725334425334426706f735f69643d6a78724d45305a4a"><img src="https://camo.githubusercontent.com/4479ddf88c98a568af3788d296aad350011cda1f5d4e4053716e20026aa18ca9/68747470733a2f2f696d672d686f6d652e6373646e696d672e636e2f696d616765732f32303233303732343032343135392e706e673f6f726967696e5f75726c3d64617461253341696d61676525324667696625334262617365363425324352306c474f446c6841514142415041424150253246253246253246774141414348354241454b414141414c414141414141424141454141414943524145414f7725334425334426706f735f69643d6a78724d45305a4a" alt="wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" data-canonical-src="https://img-home.csdnimg.cn/images/20230724024159.png?origin_url=data%3Aimage%2Fgif%3Bbase64%2CR0lGODlhAQABAPABAP%2F%2F%2FwAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw%3D%3D&amp;pos_id=jxrME0ZJ" style="max-width: 100%;"></a></p>
+<ol start="2">
+<li>
+<p>所有渗透测试工具都应该可以工作，但有些工具可能有限制，例如 <strong>metasploit</strong> 可以工作但没有数据库支持。</p>
+</li>
+<li>
+<p>某些实用程序（如“ <strong>top</strong> ”）无法在未取得 root 权限的手机上运行。</p>
+</li>
+<li>
+<p>非 root 用户仍然在 <strong>chroot</strong> 中具有 root 访问权限。这是 <strong>proot</strong> 的事情。只是要注意这一点。</p>
+</li>
+<li>
+<p><strong>Galaxy</strong> 手机可能会阻止非 root 用户使用 sudo。只需改用 “su -c” 即可。</p>
+</li>
+<li>
+<p>通过停止所有 nethunter 会话并在 termux 会话中键入以下内容来执行 <strong>rootfs</strong> 的定期备份：</p>
+<p>tar -cJf kali-arm64.tar.xz kali-arm64 &amp;&amp; mv kali-arm64.tar.xz storage/downloads​​​​​​​</p>
+</li>
+</ol>
+<p>这会将备份放入您的 Android 下载文件夹中。注意：在较旧的设备上，将“ <strong>arm64</strong> ”更改为“ <strong>armhf</strong> ”</p>
+<h2>对新手朋友的建议</h2>
+<p>安装kali-nethunter花了我3天时间去研究，也是好不容易呀。真的好难。</p>
+<p>最后是我想对新手朋友们说的话：</p>
+<p><strong>真心不是很推荐使用手机去学习Kali Linux，如果你真想学的话，我还是建议使用电脑Kali Linux去学习，手机kali一般都是小白拿来装逼用。和电脑比的话当然差多了。我也是从一个小白懵懵懂懂一路走来，踩过了不少坑，所以我累积的经验也比较多。遇到问题我大部分都是靠自己解决的。请教他人当然也可以，重要的是要真的懂了才行。</strong></p>
+<p><strong>扎实的基础加上永不放弃的精神，坚持才会有结果。就如kali linux的那句</strong></p>
+<p><strong>“ The quieter you become,the more you are able to hear.”</strong></p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://luyuanbo793.github.io">卢元博的博客</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","luyuanbo793/luyuanbo793.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>
