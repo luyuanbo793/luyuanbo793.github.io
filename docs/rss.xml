@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Sun, 16 Mar 2025 04:02:25 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>termux安装kali linux命令</title><link>https://luyuanbo793.github.io/post/termux-an-zhuang-kali%20linux-ming-ling.html</link><description># 全网最全！Termux安装Kali全详细教程！包括常见错误，实现Kali VNC图形化，安装老版本镜像！
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>卢元博的博客</title><link>https://luyuanbo793.github.io</link><description>欢迎来到卢元博的博客</description><copyright>卢元博的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s21.ax1x.com/2025/03/02/pEGkgQU.jpg</url><title>avatar</title><link>https://luyuanbo793.github.io</link></image><lastBuildDate>Mon, 17 Mar 2025 15:59:30 +0000</lastBuildDate><managingEditor>卢元博的博客</managingEditor><ttl>60</ttl><webMaster>卢元博的博客</webMaster><item><title>termux安装kali linux命令</title><link>https://luyuanbo793.github.io/post/termux-an-zhuang-kali%20linux-ming-ling.html</link><description># 全网最全！Termux安装Kali全详细教程！包括常见错误，实现Kali VNC图形化，安装老版本镜像！
 
 ## 简介
 
@@ -43,8 +43,8 @@ Termux 是一款运行于 Android 系统的开源终端模拟器。</description
             'https://hub-mirror.c.163.com',
             'https://mirror.baidubce.com',
             'https://hubgw.docker.com',
-            'https://cf-workers-docker-io-bc4.pages.dev',
-             'https://cf-workers-docker-io-8ws.pages.dev'
+            'https://docker2.luyb.us.kg',
+             'https://docker2.luyb2.us.kg'
          ]
     }
     EOF

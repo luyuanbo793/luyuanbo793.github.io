@@ -36,8 +36,8 @@
             "https://hub-mirror.c.163.com",
             "https://mirror.baidubce.com",
             "https://hubgw.docker.com",
-            "https://cf-workers-docker-io-bc4.pages.dev",
-             "https://cf-workers-docker-io-8ws.pages.dev"
+            "https://docker2.luyb.us.kg",
+             "https://docker2.luyb2.us.kg"
          ]
     }
     EOF
