@@ -419,14 +419,14 @@
     source /root/.bashrc
     
 
-## 八。Docker更换国内镜像源
+## 八。Docker更换国内镜像
     
     
     #!/bin/bash
-    
+     
     # 创建 /etc/docker 目录，如果目录已存在则不报错
     sudo mkdir -p /etc/docker
-    
+     
     # 写入 daemon.json 文件内容
     sudo tee /etc/docker/daemon.json <<-'EOF'
     {
@@ -462,28 +462,21 @@
             "https://hub-mirror.c.163.com",
             "https://mirror.baidubce.com",
             "https://hubgw.docker.com", 
-
-"https://docker.1ms.run", 
-
-"https://www.mirrorify.net", 
-
-"https://docker-pull.ygxz.in", 
-
-"https://docker.1yidc.com", 
-
-"https://dockerproxy.net", 
-
-"https://docker.aityp.com", 
-
-"https://www.container.fish"
-    ]
+            "https://docker.1ms.run", 
+            "https://www.mirrorify.net", 
+            "https://docker-pull.ygxz.in", 
+            "https://docker.1yidc.com", 
+            "https://dockerproxy.net", 
+            "https://docker.aityp.com", 
+            "https://www.container.fish"
         ]
     }
     EOF
-    
+     
     # 重新加载 systemd 配置
     sudo systemctl daemon-reload
-    
+     
     # 重启 Docker 服务
     sudo systemctl restart docker
+
     

@@ -1018,12 +1018,12 @@ exit
 #执行命令使别名生效
 source /root/.bashrc
 </code></pre>
-<h2>八。Docker更换国内镜像源</h2>
+<h2>八。Docker更换国内镜像</h2>
 <pre class="notranslate"><code class="notranslate">#!/bin/bash
-
+ 
 # 创建 /etc/docker 目录，如果目录已存在则不报错
 sudo mkdir -p /etc/docker
-
+ 
 # 写入 daemon.json 文件内容
 sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 {
@@ -1059,21 +1059,20 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
         "https://hub-mirror.c.163.com",
         "https://mirror.baidubce.com",
         "https://hubgw.docker.com", 
-</code></pre>
-<p>"<a href="https://docker.1ms.run" rel="nofollow">https://docker.1ms.run</a>",</p>
-<p>"<a href="https://www.mirrorify.net" rel="nofollow">https://www.mirrorify.net</a>",</p>
-<p>"<a href="https://docker-pull.ygxz.in" rel="nofollow">https://docker-pull.ygxz.in</a>",</p>
-<p>"<a href="https://docker.1yidc.com" rel="nofollow">https://docker.1yidc.com</a>",</p>
-<p>"<a href="https://dockerproxy.net" rel="nofollow">https://dockerproxy.net</a>",</p>
-<p>"<a href="https://docker.aityp.com" rel="nofollow">https://docker.aityp.com</a>",</p>
-<p>"<a href="https://www.container.fish" rel="nofollow">https://www.container.fish</a>"<br>
-]<br>
-]<br>
-}<br>
-EOF</p>
-<pre class="notranslate"><code class="notranslate"># 重新加载 systemd 配置
+        "https://docker.1ms.run", 
+        "https://www.mirrorify.net", 
+        "https://docker-pull.ygxz.in", 
+        "https://docker.1yidc.com", 
+        "https://dockerproxy.net", 
+        "https://docker.aityp.com", 
+        "https://www.container.fish"
+    ]
+}
+EOF
+ 
+# 重新加载 systemd 配置
 sudo systemctl daemon-reload
-
+ 
 # 重启 Docker 服务
 sudo systemctl restart docker
 </code></pre></div>
